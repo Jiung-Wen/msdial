@@ -1,0 +1,48 @@
+#Data type
+Data type: Centroid | Profile
+Ion mode: Positive | Negative
+Accuracy type: IsNominal | IsAccurate
+
+#Data collection parameters
+Retention time begin: 4
+Retention time end: 25
+Mass range begin: 85
+Mass range end: 600
+
+#Peak detection parameters
+Smoothing method: SimpleMovingAverage | LinearWeightedMovingAverage | SavitzkyGolayFilter
+Smoothing level: 3
+Average peak width: 20
+Minimum peak height: 200
+Mass slice width: 0.5
+Mass accuracy: 0.5
+
+#MS1Dec parameters (Deconvolution)
+Sigma window value: 0.5
+Amplitude cut off: 50
+
+#identification
+#MSP file: D:\Msdial-ConsoleApp-Demo files\Msdial-ConsoleApp-Demo files for GCMS\Fiehn GCMS MSP.txt
+#RI index file pathes: D:\Msdial-ConsoleApp-Demo files\Msdial-ConsoleApp-Demo files for GCMS\FAMEs RT dictionary pathes.txt
+Retention type: RT | RI
+#RI compound: Fames | Alkanes
+#Retention time tolerance for identification: 0.5
+#Retention index tolerance for identification: 1500
+EI similarity tolerance for identification: 70
+# Mz tolerance for identification: float
+Identification score cut off: 70
+
+#Alignment parameters setting
+Alignment index type: RT | RI
+Retention time tolerance for alignment: 0.075
+#Retention index tolerance for alignment: 2000
+EI similarity tolerance: 70
+Retention time factor: 0.5
+EI similarity factor: 0.5
+Peak count filter: 0
+QC at least filter: True
+# Remove feature based on peak height fold-change: boolean
+# Sample max / blank average: float
+# Sample average / blank average: float
+# Keep identified and annotated metabolites: boolean
+# Replace true zero values with 1/2 of minimum peak height over all samples: boolean

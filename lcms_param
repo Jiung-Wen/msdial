@@ -1,0 +1,97 @@
+#Data type
+MS1 data type: Profile
+# MS1 data type: Centroid | Profile 
+MS2 data type: Profile
+Ion mode: Negative
+# Ion mode: Positive | Negative
+# DIA file: 
+
+#Data collection parameters
+Retention time begin: 0
+Retention time end: 100
+Mass range begin: 0
+Mass range end: 2000
+# MS2 mass range begin:
+# MS2 mass range end:
+
+#Centroid parameters
+MS1 tolerance for centroid: 0.01
+MS2 tolerance for centroid: 0.05
+
+#Retentiontime correction
+# Excute RT correction: boolean
+# RT correction with smoothing for RT diff: boolean
+# User setting intercept: float
+# RT diff calc method: SampleMinusSampleAverage | SampleMinusReference
+# Interpolation Method: Linear
+# Extrapolation method (begin): UserSetting | FirstPoint | LinearExtrapolation
+# Extrapolation method (end): LastPoint | LinearExtrapolation
+# iSTD file:
+
+#Peak detection parameters
+Smoothing method: SimpleMovingAverage | LinearWeightedMovingAverage | SavitzkyGolayFilter | BinomialFilter
+Smoothing level: 3
+Minimum peak width: 5
+Minimum peak height: 1
+Mass slice width: 0.1
+
+#Deconvolution parameters
+Sigma window value: 0.5
+Amplitude cut off: 0
+# Exclude after precursor: boolean
+
+#Adduct list
+Adduct list: [M-H]-,[M+FA-H]-,[M-H2O-H]-
+# [M-H]-,[M-H2O-H]-,[M+Na-2H]-,[M+K-2H]-,[M+FA-H]-,[M+C2H3N+Na-2H]-,[M-C6H10O4-H]-,[M-C6H10O5-H]-,[M-C6H8O6-H]-,[2M-H]-,[2M+FA-H]-,[3M-H]-,[M-2H]2-
+
+#MSP file and MS/MS identification setting
+#MSP file: D:\Msdial-ConsoleApp-Demo files\Msdial-ConsoleApp-Demo files for DDA\MSDIAL-LipidDB-VS23.msp
+
+# Identification
+Retention time tolerance for identification: 4
+Accurate ms1 tolerance for identification: 0.025
+Accurate ms2 tolerance for identification: 0.25
+Identification score cut off: 70
+# Use retention information for identification score: boolean
+
+#Text file and post identification (retention time and accurate mass based) setting
+#Text file: D:\Msdial-ConsoleApp-Demo files\Msdial-ConsoleApp-Demo files for DDA\Lipid_Nega_IS_PostIdentification_vs1.txt
+
+# Post identification
+Retention time tolerance for post identification: 0.5
+Accurate ms1 tolerance for post identification: 0.01
+Post identification score cut off: 85
+
+#Alignment parameters setting
+Retention time tolerance for alignment: 0.05
+MS1 tolerance for alignment: 0.025
+Retention time factor for alignment: 0.5
+MS1 factor for alignment: 0.5
+Peak count filter: 0
+QC at least filter: True
+# Alignment reference file ID: int
+# Remove feature based on peak height fold-change: float
+# Sample max / blank average: float
+# Sample average / blank average: float
+# Keep identified and annotated metabolites: boolean
+# Replace true zero values with 1/2 of minimum peak height over all samples: boolean
+
+#Isotope tracking setting
+# Tracking isotope label: boolean
+# Set fully labeled reference file: boolean
+# Non labeled reference ID: int
+# Fully labeled reference ID: int
+# Isotope tracking dictionary ID: int
+
+#CorrDec settings
+# CorrDec excute: boolean
+# CorrDec MS2 tolerance: float
+# CorrDec minimum MS2 peak height: int
+# CorrDec minimum number of detected samples: int
+# CorrDec exclude highly correlated spots: float
+# CorrDec minimum correlation coefficient (MS2): float
+# CorrDec margin 1 (target precursor): float
+# CorrDec margin 2 (coeluted precursor): float
+# CorrDec minimum detected rate: float
+# CorrDec minimum MS2 relative intensity: float
+# CorrDec remove peaks larger than precursor: boolean
