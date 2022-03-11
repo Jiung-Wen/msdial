@@ -45,3 +45,34 @@ less ./MsdialWorkbench_Public/MsdialConsoleApp/Parser/ConfigParser.cs
 ```
 Note that lines begin with ```#``` are considered comments and ```A | B``` indicate either A or B. Therefore, please delete/modify it accordingly.
 
+## Input files
+According to [MS-DIAL's official website](http://prime.psc.riken.jp/compms/msdial/consoleapp.html) (retrieved March 11, 2022), Both _gcms_ and _lcmsdda_ mode accept netCDF (.cdf), mzML (.mzml), or ABF (.abf) files, whereas _lcmsdia_ mode only accepts ABF (.abf) files.
+
+I don't know how to convert vendor-format data files (e.g., .wiff or .d) into netCDF files. But you can convert them into mzML and ABF using [ProteoWizard](https://proteowizard.sourceforge.io/)'s msconvert and [Reifycs ABF Converter](https://www.reifycs.com/AbfConverter/), respectively. AFAIK, msconvert can be run on Windows and Linux, whereas ABF can be run only on Windows. I assume most of the readers here are looking for a way to convert files on Linux cluster, which I will introduce in the next section.
+
+## Run msconvert on Linux cluster
+If you are a root user or have sudo privileges, you can simply follow the instruction [here](https://hub.docker.com/r/chambm/pwiz-skyline-i-agree-to-the-vendor-licenses). However, if you are using an HPC cluster, chances are that you don't have that privileges and cannot easily install the msconvert app via Docker. Fortunately, you can achieve this by using Singularity, though it would be a little bit tricky. You may see an error message like "wine: /wineprefix64 is not owned by you" if you simply build the Singularity image from the Docker repo.
+
+To install msconvert, first make sure you have singularity installed on the HPC cluster.
+
+Make a directory called pwiz and go to pwiz:
+```bash
+mkdir pwiz && cd pwiz
+```
+Build a singularity sandbox (basically a dir) from Docker image:
+```bash
+singularity build --sandbox pwiz docker://chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+```
+Move the dir “wineprefix64” out of the sandbox (“pwiz” in this example):
+```bash
+mv pwiz/wineprefix64 ./
+```
+Build a singularity image file (.sif):
+```bash
+singularity build pwiz.sif pwiz 
+```
+Mount the dir “wineprefix64” and you can now execute the msconvert:
+```bash
+singularity exec -B wineprefix64:/wineprefix64 pwiz.sif wine msconvert [options]
+```
+
