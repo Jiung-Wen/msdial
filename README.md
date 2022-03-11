@@ -1,4 +1,4 @@
-# MS-DIAL
+# MS-DIAL command line tutorial
 The (unofficial) tutorial for running MS-DIAL (v4.80) on Linux cluster
 
 
