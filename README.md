@@ -30,7 +30,7 @@ unzip MSDIAL\ ver.4.80\ OSX.zip
 mv MSDIAL\ ver.4.80\ OSX/ MSDIAL_ver.4.80_OSX
 chmod +x ./MSDIAL_ver.4.80_OSX/MsdialConsoleApp
 ```
-Now here's the tricky part. When trying to launch the console app, you may see error messages like ```"Some.File.Name.Here” cannot be opened because the developer cannot be verified."``` Go to System preferences > Security & Privacy > General tab, and you will see ```macOS cannot verify the developer of “Some.File.Name.Here”. Are you sure you want to open it?``` Click Open Anyway. Getting MS-DIAL to work the first time on a Mac is a pain, you need to repeat this loop (launch -> error -> open anyway -> launch -> ...) several times until no error message is shown. However, once fixed, it runs fine!
+Now here's the tricky part. When trying to launch the console app, you may see error messages like _"Some.File.Name.Here” cannot be opened because the developer cannot be verified."_ Go to System preferences > Security & Privacy > General tab, and you will see _macOS cannot verify the developer of “Some.File.Name.Here”. Are you sure you want to open it?_ Click Open Anyway. Getting MS-DIAL to work the first time on a Mac is a pain, you need to repeat this loop (launch -> error -> open anyway -> launch -> ...) several times until no error message is shown. However, once fixed, it runs fine!
 
 
 ## [Optional] Set up the $PATH variable (Linux)
