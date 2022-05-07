@@ -1,6 +1,7 @@
 # MS-DIAL command line tutorial
-The (unofficial) tutorial for running MS-DIAL (v4.80) on Linux cluster
+The (unofficial) tutorial for running MS-DIAL (v4.80) on Linux cluster (or Mac)
 
+[Update May 7, 2022] MS-DIAL installation on a Mac
 
 ## Download and "install" the MS-DIAL Console app on Linux
 It took me a while to figure out how to install the MS-DIAL on Linux since the tutorial other than Windows version is less detailed. It turns out that I can run MS-DIAL app out-of-the-box and there's no installation step at all!
@@ -21,8 +22,18 @@ chmod +x ./MSDIAL_ver.4.80_Linux/MsdialConsoleApp
 ```
 And there you go! 
 
+## How to install the MS-DIAL Console app on a Mac
+The steps of installing MS-DIAL on a Mac are similar to that on a Linux, but a little bit tricky. The first several steps are the same as before:
+```bash
+wget http://prime.psc.riken.jp/compms/msdial/download/repository/macOS/MSDIAL%20ver.4.80%20OSX.zip
+unzip MSDIAL\ ver.4.80\ OSX.zip
+mv MSDIAL\ ver.4.80\ OSX/ MSDIAL_ver.4.80_OSX
+chmod +x ./MSDIAL_ver.4.80_OSX/MsdialConsoleApp
+```
+Now here's the tricky part. When trying to launch the console app, you may see error messages like ```"Some.File.Name.Here” cannot be opened because the developer cannot be verified."``` Go to System preferences > Security & Privacy > General tab, and you will see ```macOS cannot verify the developer of “Some.File.Name.Here”. Are you sure you want to open it?``` Click Open Anyway. Getting MS-DIAL to work the first time on a Mac is a pain, you need to repeat this loop (launch -> error -> open anyway -> launch -> ...) several times until no error message is shown. However, once fixed, it runs fine!
 
-## [Optional] Set up the $PATH variable 
+
+## [Optional] Set up the $PATH variable (Linux)
 ```bash
 vim ~/.bashrc
 ```
