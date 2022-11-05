@@ -1,6 +1,7 @@
 # MS-DIAL command line tutorial
 The (unofficial) tutorial for running MS-DIAL (v4.80) on Linux cluster (or Mac)
 
+[Update Nov. 5, 2022] remove quarantine from all msdial files for the Mac installation. Thank you @ethanbass  
 [Update May 7, 2022] MS-DIAL installation on a Mac
 
 ## Download and "install" the MS-DIAL Console app on Linux
@@ -30,8 +31,14 @@ unzip MSDIAL\ ver.4.80\ OSX.zip
 mv MSDIAL\ ver.4.80\ OSX/ MSDIAL_ver.4.80_OSX
 chmod +x ./MSDIAL_ver.4.80_OSX/MsdialConsoleApp
 ```
-Now here's the tricky part. When trying to launch the console app, you may see error messages like _"Some.File.Name.Here” cannot be opened because the developer cannot be verified."_ Go to System preferences > Security & Privacy > General tab, and you will see _macOS cannot verify the developer of “Some.File.Name.Here”. Are you sure you want to open it?_ Click Open Anyway. Getting MS-DIAL to work the first time on a Mac is a pain, you need to repeat this loop (launch -> error -> open anyway -> launch -> ...) several times until no error message is shown. However, once fixed, it runs fine!
 
+~~Now here's the tricky part. When trying to launch the console app, you may see error messages like _"Some.File.Name.Here” cannot be opened because the developer cannot be verified."_ Go to System preferences > Security & Privacy > General tab, and you will see _macOS cannot verify the developer of “Some.File.Name.Here”. Are you sure you want to open it?_ Click Open Anyway. Getting MS-DIAL to work the first time on a Mac is a pain, you need to repeat this loop (launch -> error -> open anyway -> launch -> ...) several times until no error message is shown. However, once fixed, it runs fine!~~
+
+
+@ethanbass provides a fabulous way to disable the quarantine from the command line instead of clicking through all the security error messages in the System Preferences panel.
+```
+sudo xattr -r -d com.apple.quarantine ./MSDIAL_ver.4.80_OSX/*
+```
 
 ## [Optional] Set up the $PATH variable (Linux)
 ```bash
